@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>hello</title>
+    <script src="options/js/vendor/zepto.js"></script>
+    <script src="vendor/mustache.js"></script>
+    <script src="popup.js"></script>
+    <style>
+        .body--dark {
+            background-color: #333333;;
+            color: #fff ;
+        }
+        .body--dark .error-list {
+            padding: .5rem .8rem;
+        }
+        .body--dark .error-list__body {
+            color: #CBCA4D;
+        }
+        .body--dark .error-list__refernece {
+            color: white;
+        }
+        .body--dark footer {
+            border-top: 0 none;
+        }
+        .body--dark .button {
+            background-color: #1e1e1e;
+            border: 1px solid #444;
+            color: white;
+        }
+    </style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        ul, li, dl, dt, dd {
+            list-style: none;
+            min-width: 200px;
+            margin: 0;
+            padding: 0;
+        }
+        .error-list,
+        .content,
+        .button {
+            padding: .5rem;
+        }
+        .view-report {
+            width: 100%;
+        }
+        .body--normal {}
+        .body--simple .error-list__title {
+            left: -99cm;
+            position: absolute;
+        }
+        
+        .body--showSiteNamefalse h1 {
+            position: absolute;
+            top: -99cm;
+        }
+
+        .error-list__title {
+            font-size: .95rem;
+            text-transform: uppercase;
+            margin: .5rem 0;
+        }
+        .error-list__title:first-child {
+            margin-top: 0;
+        }
+        .error-list__body {
+            color: #1a6c92;
+            font-size: 0.8rem;
+        }
+        .error-list__refernece {
+            color: black;
+        }
+        .button {
+            border: 0 none;
+            cursor: pointer;
+            width: 100%;
+        }
+        footer {
+            border-top: 1px solid silver;
+            margin-top: .5rem;
+        }
+        .go-to-dqm {
+            display: none;
+        }
+    </style>
+    <style>
+        .loading {
+            min-width: 300px;
+        }
+        .message,
+        .loading > *,
+        .loading .go-to-dqm {
+            position: absolute;
+            visibility: hidden;
+        }
+        .loading > .message,
+        .loading > footer {
+            position: static;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body class="loading">
+<h1>{{siteName}}</h1>
+<p class="message content">No report returned, please try again later</p>
+<dl class="error-list"></dl>
+<footer>
+        <button class="button go-to-dqm">Open in DQM</button>
+        <button class="button go-to-options">Open Options</button>
+</footer>
+
+<script type="text/template" id="list-item">
+    {{#.}}
+    {{#sectionHeading}}
+    <dt class="error-list__title">{{.}}</dt>
+    {{/sectionHeading}}
+    {{#failed}}
+    <dd class="error-list__body"
+        data-priority="{{priority}}"
+        data-category="{{category}}"
+        title="{{category}}"><span class="error-list__refernece">{{reference}}</span> {{name}}</dd>
+    {{/failed}}
+    {{/.}}
+</script>
+</body>
+</html>

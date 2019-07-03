@@ -1,0 +1,44 @@
+{
+	"name": "Crownpeak status checker"
+	,"short_name": "CP-REPORTS"
+	,"version": "0.14"
+	,"manifest_version": 2
+	,"description": "Basic display for Crownpeak page reports"
+	,"homepage_url": "https://github.com/clanceyp/chrome-extension-crownpeak"
+	,"icons": {
+		"32": "lib/options/i/cp-128.png"
+		,"48": "lib/options/i/cp-128.png"
+		,"128": "lib/options/i/cp-128.png"
+	}
+	,"background":{
+		"scripts": [
+			"lib/options/js/manifest.js"
+			,"lib/options/js/vendor/underscore.js"
+			,"lib/options/js/vendor/zepto.js"
+			,"lib/options/js/background.js"
+			,"lib/background.js"
+			,"lib/cp.js"
+		]
+	}
+	,"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+	,"options_ui": {
+		"page": "lib/options/index.html",
+		"open_in_tab": false
+	}
+	,"permissions": [
+		"tabs"
+		,"http://*/*"
+		,"https://*/*"
+		,"background"
+		,"notifications"
+	]
+	,"browser_action": {
+		"default_icon" : {
+          "16": "lib/options/i/cp-128.png",
+          "24": "lib/options/i/cp-128.png",
+          "32": "lib/options/i/cp-128.png"
+        },
+		"default_title": "Crownpeak report",
+		"default_popup": "lib/popup.html"
+	}
+}
