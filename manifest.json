@@ -1,7 +1,7 @@
 {
 	"name": "Crownpeak status checker"
 	,"short_name": "CP-REPORTS"
-	,"version": "0.14"
+	,"version": "0.15"
 	,"manifest_version": 2
 	,"description": "Basic display for Crownpeak page reports"
 	,"homepage_url": "https://github.com/clanceyp/chrome-extension-crownpeak"
